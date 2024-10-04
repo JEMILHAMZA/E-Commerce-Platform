@@ -1,0 +1,19 @@
+<!-- admin/dashboard.ejs -->
+
+
+
+<link rel="stylesheet" href="/css/adminDashboard.css">
+
+<div class="admin-dashboard-container">
+  <h1>Welcome, <%= admin.username %>!</h1>
+  <p>This is your admin dashboard.</p>
+  <!-- Add Logout Button -->
+
+  
+  <ul>
+    <li><a href="/admin/products">Manage Products</a></li>
+    <li><a href="/admin/manage-orders">Manage Orders</a></li>
+    <li><a href="/admin/support-requests">Manage Support Requests</a></li>
+    <li><a href="/admin/logout" class="btn-logout">Logout</a></li>
+  </ul>
+</div>

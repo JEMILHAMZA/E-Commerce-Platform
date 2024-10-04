@@ -1,0 +1,33 @@
+
+<!-- admin/products.ejs -->
+
+
+
+<link rel="stylesheet" href="/css/adminProducts.css">
+
+<div class="admin-products-container">
+  <h1>Manage Products</h1>
+  <a href="/admin/products/new" class="add-product">Add New Product</a>
+
+  <ul>
+    <% products.forEach(product => { %>
+      <li>
+        <img src="<%= product.imageUrl %>" alt="<%= product.name %>" />
+        <div>
+          <h3><%= product.name %></h3>
+          <p><%= product.description %></p>
+          <p>$<%= product.price %></p>
+          <p>Category: <%= product.category %></p>
+        </div>
+        <div class="actions">
+          <a href="/admin/products/edit/<%= product._id %>" class="edit-product">Edit</a>
+          <form action="/admin/products/delete/<%= product._id %>" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+          </form>
+        </div>
+      </li>
+    <% }) %>
+  </ul>
+</div>
+
+

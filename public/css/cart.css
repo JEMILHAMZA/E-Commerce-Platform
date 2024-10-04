@@ -1,0 +1,129 @@
+/* Cart Page Styling */
+.cart-container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-container h1 {
+    font-size: 32px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #3f51b5;
+}
+
+.cart-items {
+    list-style-type: none;
+    padding: 0;
+}
+
+.cart-items li {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-items li img {
+    width: 120px;
+    height: auto;
+    border-radius: 8px;
+    margin-right: 20px;
+}
+
+.cart-items li h3 {
+    flex: 1;
+    font-size: 18px;
+    margin: 0;
+    color: #333;
+}
+
+.cart-items li p {
+    font-size: 16px;
+    color: #777;
+    margin: 5px 0;
+}
+
+.quantity-controls {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+}
+
+.quantity-controls button {
+    background-color: #3f51b5;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 0 5px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.quantity-controls button:hover {
+    background-color: #2c387e;
+}
+
+.quantity-controls span {
+    font-size: 16px;
+    margin: 0 10px;
+}
+
+.cart-items li form button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.cart-items li form button:hover {
+    background-color: #d32f2f;
+}
+
+.cart-summary {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.cart-summary h2, .cart-summary h3 {
+    font-size: 24px;
+    color: #3f51b5;
+}
+
+.cart-summary a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3f51b5;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.cart-summary a:hover {
+    background-color: #2c387e;
+}
+
+@media screen and (max-width: 768px) {
+    .cart-items li {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .quantity-controls {
+        margin-top: 10px;
+    }
+
+    .cart-summary {
+        text-align: center;
+    }
+}

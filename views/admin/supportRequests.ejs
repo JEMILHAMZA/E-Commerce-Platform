@@ -1,0 +1,40 @@
+<!-- views/admin/supportRequests.ejs -->
+<link rel="stylesheet" href="/css/supportRequests.css">
+
+<div class="support-requests-container">
+  <h1>Support Requests</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Date</th>
+        <th>Responded</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% supportRequests.forEach(request => { %>
+        <tr style="background-color: <%= request.isResponded ? '#d3d3d3' : 'white' %>">
+          <td><%= request.name %></td>
+          <td><%= request.email %></td>
+          <td><%= request.message %></td>
+          <td><%= request.createdAt.toDateString() %></td>
+          <td>
+            <form action="/admin/support-requests/<%= request._id %>/responded" method="POST">
+              <input 
+                type="checkbox" 
+                name="responded" 
+                <%= request.isResponded ? 'checked' : '' %> 
+                onchange="this.form.submit()"
+              >
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>
+
+

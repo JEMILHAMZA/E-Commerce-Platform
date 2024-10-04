@@ -1,0 +1,131 @@
+<!-- views/orderTracking.ejs -->
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/css/orderTracking.css">
+
+<div class="order-tracking-container">
+  <h1>Track Your Orders</h1>
+
+  <ul>
+    <li><a href="#processing" class="tab-link active">Processing</a></li>
+    <li><a href="#shipped" class="tab-link">Shipped</a></li>
+    <li><a href="#delivered" class="tab-link">Delivered</a></li>
+    <li><a href="#cancelled" class="tab-link">Cancelled</a></li>
+  </ul>
+
+  <div id="processing" class="tab-content active">
+    <% if (categories.Processing.length > 0) { %>
+      <% categories.Processing.forEach(order => { %>
+        <h3>Order ID: <%= order._id %></h3>
+        <p>Products: 
+          <ul>
+            <% order.items.forEach(item => { %>
+              <li>Product ID: <%= item.productId %>, Quantity: <%= item.quantity %></li>
+            <% }) %>
+          </ul>
+        </p>
+        <p>Total Cost: $<%= order.totalCost %></p>
+        <p>Order Date: <%= order.orderDate %></p>
+        <p>Shipping Address: <%= order.shippingAddress.addressLine1 %>, <%= order.shippingAddress.city %>, <%= order.shippingAddress.state %>, <%= order.shippingAddress.postalCode %></p>
+        <p>Phone Number: <%= order.phoneNumber %></p>
+        <p>Status: <%= order.orderStatus %></p>
+      <% }) %>
+    <% } else { %>
+      <p>No orders in processing status.</p>
+    <% } %>
+  </div>
+
+  <!-- Repeat for shipped, delivered, cancelled as needed -->
+
+
+
+
+  <div id="shipped" class="tab-content">
+    <% if (categories.Shipped.length > 0) { %>
+      <% categories.Shipped.forEach(order => { %>
+        <h3>Order ID: <%= order._id %></h3>
+        <p>Products:
+          <ul>
+            <% order.items.forEach(item => { %>
+              <li>Product ID: <%= item.productId %>, Quantity: <%= item.quantity %></li>
+            <% }) %>
+          </ul>
+        </p>
+        <p>Total Cost: $<%= order.totalCost %></p>
+        <p>Order Date: <%= order.orderDate %></p>
+        <p>Shipping Address:  <%= order.shippingAddress.addressLine1 %>, <%= order.shippingAddress.city %>, <%= order.shippingAddress.state %>, <%= order.shippingAddress.postalCode %></p>
+        <p>Phone Number: <%= order.phoneNumber %></p>
+        <p>Status: <%= order.orderStatus %></p>
+        <!-- Display other details as needed -->
+      <% }) %>
+    <% } else { %>
+      <p>No orders in shipped status.</p>
+    <% } %>
+  </div>
+
+  <div id="delivered" class="tab-content">
+    <% if (categories.Delivered.length > 0) { %>
+      <% categories.Delivered.forEach(order => { %>
+        <h3>Order ID: <%= order._id %></h3>
+        <p>Products: 
+          <ul>
+            <% order.items.forEach(item => { %>
+              <li>Product ID: <%= item.productId %>, Quantity: <%= item.quantity %></li>
+            <% }) %>
+          </ul>
+      </p>
+        <p>Total Cost: $<%= order.totalCost %></p>
+        <p>Order Date: <%= order.orderDate %></p>
+        <p>Shipping Address:  <%= order.shippingAddress.addressLine1 %>, <%= order.shippingAddress.city %>, <%= order.shippingAddress.state %>, <%= order.shippingAddress.postalCode %></p>
+        <p>Phone Number: <%= order.phoneNumber %></p>
+        <p>Status: <%= order.orderStatus %></p>
+        <!-- Display other details as needed -->
+      <% }) %>
+    <% } else { %>
+      <p>No orders in delivered status.</p>
+    <% } %>
+  </div>
+
+  <div id="cancelled" class="tab-content">
+    <% if (categories.Cancelled.length > 0) { %>
+      <% categories.Cancelled.forEach(order => { %>
+        <h3>Order ID: <%= order._id %></h3>
+        <p>Products: 
+          <ul>
+            <% order.items.forEach(item => { %>
+              <li>Product ID: <%= item.productId %>, Quantity: <%= item.quantity %></li>
+            <% }) %>
+          </ul>
+        </p>
+        <p>Total Cost: $<%= order.totalCost %></p>
+        <p>Order Date: <%= order.orderDate %></p>
+        <p>Shipping Address:  <%= order.shippingAddress.addressLine1 %>, <%= order.shippingAddress.city %>, <%= order.shippingAddress.state %>, <%= order.shippingAddress.postalCode %></p>
+        <p>Phone Number: <%= order.phoneNumber %></p>
+        <p>Status: <%= order.orderStatus %></p>
+        <!-- Display other details as needed -->
+      <% }) %>
+    <% } else { %>
+      <p>No orders in cancelled status.</p>
+    <% } %>
+  </div>
+
+
+  
+</div>
+
+<script>
+  document.querySelectorAll('.tab-link').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      // Hide all content and remove active class from tabs
+      document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+      document.querySelectorAll('.tab-link').forEach(link => link.classList.remove('active'));
+
+      // Show the selected tab content and make tab active
+      document.querySelector(this.getAttribute('href')).classList.add('active');
+      this.classList.add('active');
+    });
+  });
+</script>
+
+<%- include('partials/footer') %>

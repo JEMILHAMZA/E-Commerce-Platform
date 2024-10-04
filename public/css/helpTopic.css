@@ -1,0 +1,76 @@
+
+
+
+/* Container Styling */
+.help-topics-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 80px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Heading */
+.help-topics-container h1 {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Details Section */
+.help-topics-container p {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+/* Regulations Section */
+.help-topics-container h3 {
+    font-size: 1.8em;
+    color: #007bff;
+    margin-top: 40px;
+    font-weight: bold;
+    border-bottom: 3px solid #007bff;
+    padding-bottom: 10px;
+    text-transform: uppercase;
+}
+
+/* Distinct Regulations Text */
+.help-topics-container .regulations-text {
+    font-size: 1.15em;
+    color: #333;
+    line-height: 1.6;
+    background-color: #eaf4ff;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+/* List Styling for Regulations */
+.help-topics-container ul, .help-topics-container ol {
+    margin: 20px 0;
+}
+
+/* List Items */
+.help-topics-container li {
+    margin-bottom: 10px;
+}
+
+/* Back to Help Topics Link */
+.help-topics-container a {
+    display: block;
+    margin-top: 30px;
+    text-align: center;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.help-topics-container a:hover {
+    color: #0056b3;
+}

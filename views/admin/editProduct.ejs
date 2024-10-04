@@ -1,0 +1,36 @@
+<!-- admin/editProduct.ejs -->
+
+<link rel="stylesheet" href="/css/newProduct.css">
+
+<div class="new-product-container">
+<h1>Edit Product</h1>
+
+<form action="/admin/products/edit/<%= product._id %>" method="POST">
+  <label for="name">Name:</label>
+  <input type="text" name="name" value="<%= product.name %>" required>
+
+  <label for="description">Description:</label>
+  <textarea name="description" required><%= product.description %></textarea>
+
+  <label for="price">Price:</label>
+  <input type="number" name="price" value="<%= product.price %>" required>
+
+  <label for="imageUrl">Image URL:</label>
+  <input type="text" name="imageUrl" value="<%= product.imageUrl %>" required>
+
+  <label for="category">Category:</label>
+  <select name="category" required>
+    <option value="Electronics" <%= product.category === 'Electronics' ? 'selected' : '' %>>Electronics</option>
+    <option value="Clothing" <%= product.category === 'Clothing' ? 'selected' : '' %>>Clothing</option>
+    <option value="Books" <%= product.category === 'Books' ? 'selected' : '' %>>Books</option>
+    <option value="Home & Kitchen" <%= product.category === 'Home & Kitchen' ? 'selected' : '' %>>Home & Kitchen</option>
+    <option value="Sports" <%= product.category === 'Sports' ? 'selected' : '' %>>Sports</option>
+  </select>
+
+  <button type="submit">Update Product</button>
+</form>
+</div>
+
+
+
+

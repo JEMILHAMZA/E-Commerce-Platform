@@ -1,0 +1,59 @@
+<!-- views/productDetails.ejs -->
+
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/css/productDetails.css">
+
+<div class="product-details">
+  <img src="<%= product.imageUrl %>" alt="<%= product.name %>" style="width: 300px;" />
+  <h1><%= product.name %></h1>
+  <p><%= product.description %></p>
+  <h3>Price: $<%= product.price %></h3>
+  <form action="/cart/add/<%= product._id %>" method="POST">
+    <button type="submit">Add to Cart</button>
+  </form>
+  
+  <!-- Display average rating and total reviews -->
+  <% if (totalReviews > 0) { %>
+    <h2>Average Rating: <%= avgRating.toFixed(1) %> / 5</h2>
+  <% } else { %>
+    <h2>No ratings yet</h2>
+  <% } %>
+  <p>Total Reviews: <%= totalReviews %></p>
+
+  <a href="/product/<%= product._id %>?showDetails=true">See Detailed Customer Reviews</a>
+
+  <!-- Display Reviews only if 'showDetails' flag is true -->
+  <% if (showDetails) { %>
+    <% if (reviews.length > 0) { %>
+      <% reviews.forEach(review => { %>
+        <div class="review">
+          <h4><%= review.userId.name %> rated it <%= review.rating %> / 5</h4>
+          <p><%= review.comment %></p>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <p>No reviews yet.</p>
+    <% } %>
+  <% } %>
+
+  <!-- Leave a Review (only for logged-in users) -->
+  <% if (user) { %>
+    <h3>Leave a Review</h3>
+    <form action="/product/<%= product._id %>/review" method="POST">
+      <label for="rating">Rating:</label>
+      <select name="rating" id="rating" required>
+        <option value="5">5</option>
+        <option value="4">4</option>
+        <option value="3">3</option>
+        <option value="2">2</option>
+        <option value="1">1</option>
+      </select>
+      <label for="comment">Comment:</label>
+      <textarea name="comment" id="comment" required></textarea>
+      <button type="submit">Submit Review</button>
+    </form>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>
+

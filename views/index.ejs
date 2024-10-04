@@ -1,0 +1,80 @@
+<!-- views/index.ejs -->
+
+<%- include('partials/header') %>
+
+<h1>Welcome to Our Store</h1>
+
+<!-- Filter, Search & Sorting Form -->
+<!-- Filter, Search & Sorting Form -->
+<form method="GET" action="/" class="filter-form">
+  <div class="form-left">
+    <label for="sort">Sort By:</label>
+    <select name="sort" id="sort">
+      <option value="">Default</option>
+      <option value="priceAsc" <%= query.sort === 'priceAsc' ? 'selected' : '' %>>Price: Low to High</option>
+      <option value="priceDesc" <%= query.sort === 'priceDesc' ? 'selected' : '' %>>Price: High to Low</option>
+      <option value="newest" <%= query.sort === 'newest' ? 'selected' : '' %>>Newest First</option>
+    </select>
+
+    <label for="category">Category:</label>
+    <select name="category" id="category">
+      <option value="">All Categories</option>
+      <option value="Electronics" <%= query.category === 'Electronics' ? 'selected' : '' %>>Electronics</option>
+      <option value="Clothing" <%= query.category === 'Clothing' ? 'selected' : '' %>>Clothing</option>
+      <option value="Books" <%= query.category === 'Books' ? 'selected' : '' %>>Books</option>
+      <option value="Home & Kitchen" <%= query.category === 'Home & Kitchen' ? 'selected' : '' %>>Home & Kitchen</option>
+      <option value="Sports" <%= query.category === 'Sports' ? 'selected' : '' %>>Sports</option>
+    </select>
+  </div>
+
+  <div class="form-right">
+    <label for="search" class="search-label">Search:</label>
+    <input type="text" name="search" id="search" placeholder="Search for products..." value="<%= query.search || '' %>">
+  </div>
+  
+  <!-- The rest of the form elements for filters -->
+  <div class="filters">
+    <label for="priceMin">Min Price:</label>
+    <input type="number" name="priceMin" id="priceMin" value="<%= query.priceMin || '' %>">
+    <label for="priceMax">Max Price:</label>
+    <input type="number" name="priceMax" id="priceMax" value="<%= query.priceMax || '' %>">
+    
+    <label for="ratingMin">Min Rating:</label>
+    <input type="number" name="ratingMin" id="ratingMin" min="1" max="5" step="0.1" value="<%= query.ratingMin || '' %>">
+    <label for="ratingMax">Max Rating:</label>
+    <input type="number" name="ratingMax" id="ratingMax" min="1" max="5" step="0.1" value="<%= query.ratingMax || '' %>">
+
+    <button type="submit">Apply Filters</button>
+  </div>
+</form>
+
+
+<div class="product-list">
+  <% if (products.length > 0) { %>
+    <% products.forEach(product => { %>
+      <div class="product-item">
+        <img src="<%= product.imageUrl %>" alt="<%= product.name %>" style="width: 200px;" />
+        <h2><%= product.name %></h2>
+        <p><%= product.description %></p>
+        <p>Price: $<%= product.price %></p>
+
+        <!-- Display 'No ratings yet' if avgRating is 0 -->
+        <p>
+          Rating: 
+          <% if (product.avgRating === 0) { %>
+            No ratings yet
+          <% } else { %>
+            <%= product.avgRating.toFixed(1) %> 
+          <% } %>
+        </p>
+
+        <a href="/product/<%= product._id %>">View Details</a>
+      </div>
+    <% }) %>
+  <% } else { %>
+    <p>No products available.</p>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>
+

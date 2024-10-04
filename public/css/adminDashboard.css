@@ -1,0 +1,87 @@
+/* Dashboard Container Styling */
+.admin-dashboard-container {
+    width: 90%;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #f4f4f4;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+.admin-dashboard-container h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Welcome Paragraph Styling */
+.admin-dashboard-container p {
+    font-size: 1.2em;
+    color: #666;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Navigation List Styling */
+.admin-dashboard-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Navigation Item Styling */
+.admin-dashboard-container li {
+    margin-bottom: 15px;
+}
+
+/* Navigation Links Styling */
+.admin-dashboard-container a {
+    display: block;
+    padding: 15px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.admin-dashboard-container a:hover {
+    background-color: #0056b3;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Optional Additions */
+.admin-dashboard-container a:active {
+    background-color: #004494;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* Logout Button Styling */
+.btn-logout {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #dc3545;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+}

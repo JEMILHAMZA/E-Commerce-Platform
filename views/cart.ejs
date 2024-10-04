@@ -1,0 +1,81 @@
+<!-- views/cart.ejs -->
+
+<%- include('partials/header') %>
+
+<link rel="stylesheet" href="/css/cart.css">
+
+<div class="cart-container">
+  <h1>Your Shopping Cart</h1>
+
+  <% if (cart.length > 0) { %>
+    <ul class="cart-items">
+      <% cart.forEach(item => { %>
+
+        <% if (item.productId) { %>  <!-- Check if productId exists -->
+          <li>
+            <img src="<%= item.productId.imageUrl %>" alt="<%= item.productId.name %>" />
+            <div>
+              <h3><%= item.productId.name %></h3>
+              <p>Price: $<%= item.productId.price %></p>
+            </div>
+
+            <div class="quantity-controls">
+              <!-- Decrease quantity -->
+              <form action="/cart/update/<%= item.productId._id %>/decrease" method="POST">
+                <button type="submit">-</button>
+              </form>
+
+              <!-- Show current quantity -->
+              <span>Quantity: <%= item.quantity %></span>
+
+              <!-- Increase quantity -->
+              <form action="/cart/update/<%= item.productId._id %>/increase" method="POST">
+                <button type="submit">+</button>
+              </form>
+            </div>
+
+            <!-- Remove item -->
+            <form action="/cart/remove/<%= item.productId._id %>" method="POST">
+              <button type="submit">Remove</button>
+            </form>
+          </li>
+        <% } %>   
+
+      <% }) %>
+    </ul>
+
+    <div class="cart-summary">
+      <h2>Total Price: $<%= totalCost %></h2>
+      <h3>Total Quantity: <%= totalQuantity %> item(s)</h3>
+      <a href="/checkout">Proceed to Checkout</a>
+    </div>
+  <% } else { %>
+    <p>Your cart is empty.</p>
+  <% } %>
+</div>
+
+<%- include('partials/footer') %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

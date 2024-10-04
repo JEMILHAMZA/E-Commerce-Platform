@@ -1,0 +1,61 @@
+<!-- views/checkout -->
+<%- include('partials/header') %>
+<link rel="stylesheet" href="/css/checkout.css">
+<div class="checkout-container">
+  <h1>Checkout</h1>
+
+  <% if (cart.length > 0) { %>
+    <div class="checkout-summary">
+      <h2>Your Order</h2>
+      <ul>
+        <% cart.forEach(item => { %>
+          <li>
+            <img src="<%= item.productId.imageUrl %>" alt="<%= item.productId.name %>" />
+            <h3><%= item.productId.name %></h3>
+            <p>Quantity: <%= item.quantity %></p>
+            <p>$<%= item.productId.price %></p>
+          </li>
+        <% }) %>
+      </ul>
+      <h2>Total: $<%= totalCost %></h2>
+    </div>
+
+    <form class="checkout-form" action="/checkout" method="POST">
+      <h2>Shipping Address</h2>
+      <label for="addressLine1">Address Line 1:</label>
+      <input type="text" id="addressLine1" name="addressLine1" required>
+
+      <label for="addressLine2">Address Line 2:</label>
+      <input type="text" id="addressLine2" name="addressLine2">
+
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required>
+
+      <label for="state">State:</label>
+      <input type="text" id="state" name="state" required>
+
+      <label for="postalCode">Postal Code:</label>
+      <input type="text" id="postalCode" name="postalCode" required>
+
+      <h2>Contact Information</h2>
+      <label for="fullName">Full Name:</label>
+      <input type="text" id="fullName" name="fullName" required>
+
+      <label for="phoneNumber">Phone Number:</label>
+      <input type="text" id="phoneNumber" name="phoneNumber" required>
+
+      <h2>Payment Method</h2>
+      <label for="paymentMethod">Payment Method:</label>
+      <select id="paymentMethod" name="paymentMethod" required>
+        <option value="Credit Card">Credit Card</option>
+        <option value="PayPal">PayPal</option>
+      </select>
+
+      <button type="submit">Place Order</button>
+    </form>
+  <% } else { %>
+    <p>Your cart is empty.</p>
+  <% } %>
+</div>
+
+  <%- include('partials/footer') %>

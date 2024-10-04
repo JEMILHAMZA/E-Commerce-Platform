@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="/css/adminRegister.css">
+
+<div class="admin-register-container">
+<h2>Admin Login</h2>
+
+<form action="/admin/login" method="POST">
+  <div>
+    <label for="email">Email:</label>
+    <input type="email" name="email" required>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" name="password" required>
+  </div>
+  <button type="submit">Login</button>
+</form>
+<a href="/admin/register">Don't have an account? Register</a>
+</div>
+
+<!-- Display error if login fails -->
+

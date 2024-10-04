@@ -1,0 +1,57 @@
+
+<link rel="stylesheet" href="/css/manageOrders.css">
+
+<div class="manage-orders-container">
+  <h1>Manage Orders</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Order ID</th>
+        <th>User ID</th>
+        <th>Products</th>
+        <th>Total Cost</th>
+        <th>Payment Method</th>
+        <th>Order Date</th>
+        <th>Full Name</th>
+        <th>Phone Number</th>
+        <th>Shipping Address</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% orders.forEach(order => { %>
+        <tr>
+          <td><%= order._id %></td>
+          <td><%= order.userId %></td>
+          <td>
+            <ul>
+              <% order.items.forEach(item => { %>
+                <li>Product ID: <%= item.productId %>, Quantity: <%= item.quantity %></li>
+              <% }) %>
+            </ul>
+          </td>
+          <td>$<%= order.totalCost %></td>
+          <td><%= order.paymentMethod %></td>
+          <td><%= order.orderDate %></td>
+          <td><%= order.fullName %></td>
+          <td><%= order.phoneNumber %></td>
+          <td><%= order.shippingAddress.addressLine1 %>, <%= order.shippingAddress.city %>, <%= order.shippingAddress.state %>, <%= order.shippingAddress.postalCode %></td>
+          <td><%= order.orderStatus %></td>
+          <td>
+            <form action="/admin/update-order-status/<%= order._id %>" method="POST">
+              <select name="status">
+                <option value="Processing" <% if (order.orderStatus === 'Processing') { %> selected <% } %>>Processing</option>
+                <option value="Shipped" <% if (order.orderStatus === 'Shipped') { %> selected <% } %>>Shipped</option>
+                <option value="Delivered" <% if (order.orderStatus === 'Delivered') { %> selected <% } %>>Delivered</option>
+                <option value="Cancelled" <% if (order.orderStatus === 'Cancelled') { %> selected <% } %>>Cancelled</option>
+              </select>
+              <button type="submit">Update Status</button>
+            </form>
+          </td>
+        </tr>
+      <% }) %>
+    </tbody>
+  </table>
+</div>

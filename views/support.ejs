@@ -1,0 +1,43 @@
+<%- include('partials/header') %>
+
+<link rel="stylesheet" href="/css/support.css">
+
+<div class="customer-support-container">
+  <h1>Customer Support</h1>
+
+  <!-- Help Topics Section -->
+  <h2>Help Topics</h2>
+  <ul>
+    <% helpTopics.forEach(topic => { %>
+      <li>
+        <a href="/support/help-topics/<%= topic.slug %>"><strong><%= topic.title %></strong></a>
+      </li>
+    <% }) %>
+  </ul>
+
+  <!-- Contact Form Section -->
+  <h2>Contact Us</h2>
+
+  <% if (query.success) { %>
+    <p class="success">Your support request has been submitted successfully.</p>
+  <% } else if (query.error) { %>
+    <p class="error">There was an error submitting your request. Please try again.</p>
+  <% } %>
+
+  <form action="/support/submit" method="POST">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required />
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" required></textarea>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>
+
+<%- include('partials/footer') %>
+
+

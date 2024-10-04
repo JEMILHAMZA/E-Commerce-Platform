@@ -1,0 +1,85 @@
+/* Container Styling */
+.admin-register-container {
+    width: 90%;
+    max-width: 500px;
+    margin: 80px auto;
+    padding: 30px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+.admin-register-container h2 {
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Styling */
+.admin-register-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Form Group Styling */
+.admin-register-container div {
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.admin-register-container label {
+    font-size: 1.1em;
+    color: #333;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Input Fields */
+.admin-register-container input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+/* Submit Button */
+.admin-register-container button {
+    padding: 10px 15px;
+    font-size: 1.1em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.admin-register-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Link Styling */
+.admin-register-container a {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.admin-register-container a:hover {
+    color: #0056b3;
+}
+
+/* Error Message Styling */
+.error-message {
+    color: #d9534f;
+    font-size: 1em;
+    margin-top: 15px;
+    text-align: center;
+}

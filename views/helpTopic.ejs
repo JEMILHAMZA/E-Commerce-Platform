@@ -1,0 +1,22 @@
+<%- include('partials/header') %>
+
+<link rel="stylesheet" href="/css/helpTopic.css">
+
+
+<link rel="stylesheet" href="/css/helpTopic.css">
+
+<div class="help-topics-container">
+  <h1><%= topic.title %></h1>
+
+  <p><%= topic.details %></p>
+
+  <h3>Regulations</h3>
+  <div class="regulations-text">
+    <p><%= topic.regulations %></p>
+  </div>
+
+  <a href="/support">Back to Help Topics</a>
+</div>
+
+<%- include('partials/footer') %>
+

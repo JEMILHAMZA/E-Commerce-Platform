@@ -1,0 +1,66 @@
+/* Page Container Styling */
+.new-product-container {
+    width: 90%;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styling */
+.new-product-container h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Form Styling */
+.new-product-container form {
+    display: grid;
+    gap: 20px;
+}
+
+/* Label Styling */
+.new-product-container label {
+    font-size: 1.1em;
+    color: #333;
+}
+
+/* Input and Textarea Styling */
+.new-product-container input[type="text"],
+.new-product-container input[type="number"],
+.new-product-container textarea,
+.new-product-container select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Button Styling */
+.new-product-container button {
+    padding: 15px 20px;
+    font-size: 1.2em;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.new-product-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Textarea Styling */
+.new-product-container textarea {
+    resize: vertical;
+    min-height: 100px;
+}

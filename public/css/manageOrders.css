@@ -1,0 +1,76 @@
+/* Page Container Styling */
+.manage-orders-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+/* Heading Styling */
+.manage-orders-container h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Table Styling */
+.manage-orders-container table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    min-width: 1000px; /* Ensure table is wide enough */
+}
+
+.manage-orders-container th, .manage-orders-container td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.manage-orders-container th {
+    background-color: #007bff;
+    color: #fff;
+    font-weight: bold;
+}
+
+.manage-orders-container tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.manage-orders-container tr:hover {
+    background-color: #e9ecef;
+}
+
+/* Form and Button Styling */
+.manage-orders-container form {
+    display: inline-block;
+    margin: 0;
+}
+
+.manage-orders-container select {
+    padding: 5px;
+    font-size: 1em;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.manage-orders-container button {
+    padding: 5px 10px;
+    font-size: 1em;
+    color: #fff;
+    background-color: #28a745;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.manage-orders-container button:hover {
+    background-color: #218838;
+}
